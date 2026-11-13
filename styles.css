@@ -25,6 +25,15 @@ p + p { margin-top: 1em; }
 
 .site-header, .site-footer { display: flex; align-items: center; justify-content: space-between; gap: .75rem 1.5rem; }
 .site-header { position: sticky; top: 0; z-index: 2; background: var(--background); padding-block: 1.25rem; border-bottom: 1px solid var(--line); }
+.reading-progress {
+  position: absolute;
+  inset: auto 0 -1px;
+  height: 2px;
+  background: var(--accent);
+  transform: scaleX(var(--reading-progress, 0));
+  transform-origin: left;
+  pointer-events: none;
+}
 .site-header nav, .site-footer div { display: flex; align-items: center; flex-wrap: wrap; gap: .5rem 1.2rem; }
 .site-header a { text-decoration: none; }
 .site-header nav a { padding-block: .35rem; }

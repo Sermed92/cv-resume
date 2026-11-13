@@ -10,3 +10,17 @@ if (careerLink && legacySections.has(legacySection)) {
   const englishLink = document.querySelector('a[hreflang="en"]');
   window.location.replace(englishLink.href + "#about-domain");
 }
+
+const readingProgress = document.querySelector(".reading-progress");
+
+function updateReadingProgress() {
+  const page = document.documentElement;
+  const scrollable = page.scrollHeight - page.clientHeight;
+  const progress = scrollable > 0 ? window.scrollY / scrollable : 0;
+  readingProgress.style.setProperty("--reading-progress", Math.min(1, Math.max(0, progress)));
+}
+
+window.addEventListener("scroll", updateReadingProgress, { passive: true });
+window.addEventListener("resize", updateReadingProgress);
+window.addEventListener("pageshow", updateReadingProgress);
+updateReadingProgress();
