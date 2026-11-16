@@ -46,7 +46,7 @@ p + p { margin-top: 1em; }
 
 .hero { display: grid; align-items: center; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: clamp(2.5rem, 8vw, 7rem); padding-block: clamp(3.5rem, 8vw, 8rem); }
 .hero h1 { font-size: clamp(3rem, 7vw, 7rem); font-weight: 650; line-height: .98; letter-spacing: -.075em; margin-block: .75rem 1.5rem; text-wrap: balance; }
-.professional { grid-template-columns: minmax(0, 2.5fr) minmax(10rem, 1fr); }
+.professional { grid-template-columns: minmax(0, 2.5fr) minmax(10rem, 1fr); padding-block: clamp(2.5rem, 5vw, 5rem); }
 .professional h1 { font-size: clamp(2.9rem, 6vw, 6.1rem); }
 .eyebrow { font: .79rem/1.5 "IBM Plex Mono", Consolas, monospace; letter-spacing: .11em; text-transform: uppercase; color: var(--accent); }
 .lede { font-size: clamp(1.08rem, 1.7vw, 1.38rem); max-width: 41ch; color: var(--muted); }
