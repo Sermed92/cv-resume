@@ -33,7 +33,14 @@ const readingProgress = document.querySelector(".reading-progress");
 let activeSection;
 
 sectionPosition.hidden = false;
-document.documentElement.classList.add("has-section-position");
+function updateHeaderOffset() {
+  const offset = header.getBoundingClientRect().height + 12;
+  document.documentElement.style.setProperty("--header-scroll-offset", offset + "px");
+  updateReadingPosition();
+}
+
+const headerObserver = new ResizeObserver(updateHeaderOffset);
+headerObserver.observe(header);
 
 function updateReadingPosition() {
   const page = document.documentElement;
@@ -69,4 +76,4 @@ window.addEventListener("scroll", updateReadingPosition, { passive: true });
 window.addEventListener("resize", updateReadingPosition);
 window.addEventListener("hashchange", updateReadingPosition);
 window.addEventListener("pageshow", updateReadingPosition);
-updateReadingPosition();
+updateHeaderOffset();

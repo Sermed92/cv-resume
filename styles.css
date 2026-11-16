@@ -11,7 +11,7 @@
   color: var(--text);
 }
 
-html { scroll-padding-top: 5.5rem; }
+html { scroll-padding-top: var(--header-scroll-offset, 5.5rem); }
 * { box-sizing: border-box; }
 body { margin: 0; line-height: 1.65; }
 a { color: inherit; text-underline-offset: .24em; }
@@ -25,7 +25,6 @@ p + p { margin-top: 1em; }
 
 .site-header, .site-footer { display: flex; align-items: center; justify-content: space-between; gap: .75rem 1.5rem; }
 .site-header { position: sticky; top: 0; z-index: 2; background: var(--background); padding-block: 1.25rem; border-bottom: 1px solid var(--line); }
-html.has-section-position { scroll-padding-top: calc(5.5rem + 1.75rem); }
 .site-header:has(.section-position:not([hidden])) { flex-wrap: wrap; row-gap: .25rem; }
 .section-position { flex-basis: 100%; color: var(--muted); font-size: .8rem; }
 .site-header .section-position a { margin-inline-start: .75rem; text-decoration: underline; }
@@ -102,9 +101,15 @@ html.has-section-position { scroll-padding-top: calc(5.5rem + 1.75rem); }
 }
 @media (max-width: 28rem) {
   .wrap { width: calc(100% - 2rem); }
-  .site-header { column-gap: .6rem; }
+  .site-header { width: calc(100% - 1.25rem); column-gap: .25rem; font-size: .9rem; }
   .site-header .brand { font-size: 1rem; }
-  .site-header nav { column-gap: .65rem; }
+  .site-header nav { column-gap: .4rem; }
   .site-header { padding-block: .65rem; }
   .timeline li { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 30rem) and (max-height: 40rem) {
+  .professional { padding-block-start: 1.25rem; }
+  .professional h1 { font-size: clamp(2rem, 9vw, 2.35rem); margin-bottom: 1rem; }
+  .professional .button { margin-top: 1rem; }
 }
