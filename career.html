@@ -10,8 +10,8 @@
   <link rel="alternate" hreflang="es" href="https://soyesyo.com/career.html">
   <link rel="alternate" hreflang="en" href="https://soyesyo.com/en/career.html">
   <link rel="alternate" hreflang="x-default" href="https://soyesyo.com/career.html">
-  <link rel="stylesheet" href="styles.css?v=7">
-  <script src="scripts.js?v=6" defer></script>
+  <link rel="stylesheet" href="styles.css?v=11">
+  <script src="scripts.js?v=8" defer></script>
 </head>
 <body>
   <a class="skip" href="#content">Saltar al contenido</a>
@@ -25,51 +25,54 @@
       <a lang="es" hreflang="es" aria-label="Español" href="career.html" aria-current="true">ES</a>
       <a lang="en" hreflang="en" aria-label="English" href="en/career.html">EN</a>
     </nav>
+    <p class="section-position" hidden>Sección actual <span></span><a href="#section-index">Ir al índice</a></p>
     <div class="reading-progress" aria-hidden="true"></div>
   </header>
-  <main class="wrap" id="content">
-    <section class="hero professional" id="about" aria-labelledby="intro">
+  <main class="wrap" id="content" tabindex="-1">
+    <section class="hero professional" id="about" aria-labelledby="intro" data-section-label="Presentación" tabindex="-1">
       <div>
         <p class="eyebrow">Sergio Medina · Software Engineer</p>
         <h1 id="intro">Construyo productos que <span>resuelven problemas.</span></h1>
         <p class="lede">Construyo productos de principio a fin, desde prototipos y herramientas para gente cercana hasta sistemas en producción. Combino mi experiencia en backend con el apoyo de la IA para crear sistemas funcionales y agradables.</p>
         <a class="button" href="#projects">Ver proyectos <span aria-hidden="true">↓</span></a>
       </div>
-      <nav class="hero-aside" aria-label="En esta página">
+      <nav class="hero-aside" id="section-index" tabindex="-1" aria-label="En esta página">
         <a href="#how-i-work">Cómo trabajo <span aria-hidden="true">↘</span></a>
         <a href="#work-experience">Trayectoria <span aria-hidden="true">↘</span></a>
         <a href="#skills">Herramientas <span aria-hidden="true">↘</span></a>
         <a href="#contact">Contacto <span aria-hidden="true">↘</span></a>
       </nav>
     </section>
-    <section class="section" id="projects" tabindex="-1" aria-labelledby="projects-title">
+    <section class="section" id="projects" tabindex="-1" aria-labelledby="projects-title" data-section-label="Proyectos">
       <h2 id="projects-title">Proyectos</h2>
       <div class="case-grid">
         <article class="case">
           <p class="eyebrow">Platzi · B2B</p>
           <h3>Canje de códigos para alianzas B2B</h3>
+          <p class="case-result">Los ingresos de las alianzas que usaron el sistema ayudaron a cerrar la ronda Serie B.</p>
           <p>Contribuí al desarrollo de un sistema reutilizable para generar códigos en lote y canjear rutas de aprendizaje con un registro simplificado.</p>
-          <p>El equipo de arquitectura destacó la calidad del sistema, y lo que aprendimos sirvió para mejorar el registro de todos los usuarios de Platzi. <strong>Los ingresos de las alianzas que usaron el sistema ayudaron a cerrar la ronda Serie B.</strong></p>
+          <p>El equipo de arquitectura destacó la calidad del sistema, y lo que aprendimos sirvió para mejorar el registro de todos los usuarios de Platzi.</p>
           <p class="stack">Monolito modular</p>
         </article>
         <article class="case">
           <p class="eyebrow">Rappi</p>
           <h3>Separar un monolito por dominios</h3>
+          <p class="case-result">Retiramos el monolito y redujimos considerablemente el costo de operar un producto que seguía generando ingresos.</p>
           <p>En un producto de Rappi, las tareas menos urgentes podían retrasar pedidos que debían procesarse en tiempo real. Me encargué de documentar los flujos del monolito. Con esa base, definimos los dominios en equipo aplicando Domain-Driven Design. Después implementé buena parte de los microservicios.</p>
-          <p>Retiramos el monolito y <strong>redujimos considerablemente el costo de operar</strong> un producto que seguía generando ingresos.</p>
           <p class="stack">Go · Microservicios · DDD</p>
         </article>
         <article class="case">
           <p class="eyebrow">ArionKoder · Rendimiento</p>
           <h3>De segundos a 150&nbsp;ms en reservas</h3>
+          <p class="case-result">La reducción de llamadas externas hizo que el tiempo promedio de respuesta bajara a 150&nbsp;ms.</p>
           <p>En un sistema de reservas, consultar a proveedores externos y procesar sus respuestas tomaba varios segundos. Como los datos no cambiaban en tiempo real, guardamos en caché los resultados ya procesados.</p>
-          <p>Aunque consultar al proveedor seguía siendo lento cuando no había un resultado en caché, la reducción de llamadas externas hizo que el tiempo promedio de respuesta bajara a <strong>150&nbsp;ms</strong>.</p>
+          <p>Cuando no había un resultado en caché, consultar al proveedor seguía siendo lento.</p>
           <p class="stack">Spring Boot · Caché</p>
         </article>
       </div>
       <a class="text-link" href="#how-i-work">Siguiente sección: Cómo trabajo <span aria-hidden="true">↓</span></a>
     </section>
-    <section class="section" id="how-i-work" aria-labelledby="work-style-title">
+    <section class="section" id="how-i-work" aria-labelledby="work-style-title" data-section-label="Cómo trabajo" tabindex="-1">
       <h2 id="work-style-title">Cómo trabajo</h2>
       <div class="case-grid work-principles">
         <article class="case">
@@ -88,7 +91,7 @@
         </article>
       </div>
     </section>
-    <section class="section" id="work-experience" aria-labelledby="experience-title">
+    <section class="section" id="work-experience" aria-labelledby="experience-title" data-section-label="Trayectoria" tabindex="-1">
       <h2 id="experience-title">Trayectoria</h2>
       <ol class="timeline">
         <li>
@@ -117,17 +120,17 @@
         </li>
       </ol>
     </section>
-    <section class="section editorial" id="skills" aria-labelledby="skills-title">
+    <section class="section editorial" id="skills" aria-labelledby="skills-title" data-section-label="Herramientas" tabindex="-1">
       <h2 id="skills-title">Herramientas</h2>
       <dl class="skills">
         <div><dt>Lenguajes y frameworks</dt><dd>Go · Java · Python · Spring Boot · Echo · Django</dd></div>
-        <div><dt>APIs y mensajería</dt><dd>REST · gRPC · GraphQL · Kafka · RabbitMQ · SQS · SNS</dd></div>
+        <div><dt>APIs y mensajería</dt><dd>REST · gRPC · GraphQL · Kafka · RabbitMQ · SQS&nbsp;·&nbsp;SNS</dd></div>
         <div><dt>Datos y caché</dt><dd>PostgreSQL · MongoDB · Redis · Memcached</dd></div>
-        <div><dt>Arquitectura</dt><dd>Microservicios · Sistemas orientados a eventos · Monolito modular · Domain-Driven Design</dd></div>
+        <div><dt>Arquitectura</dt><dd>Microservicios · Sistemas orientados a eventos · Monolito modular · Domain-Driven&nbsp;Design</dd></div>
       </dl>
     </section>
-    <section class="section editorial" id="contact" aria-labelledby="contact-title">
-      <h2 id="contact-title">Hablemos</h2>
+    <section class="section editorial" id="contact" aria-labelledby="contact-title" data-section-label="Contacto" tabindex="-1">
+      <h2 id="contact-title">Contacto</h2>
       <div><p>Si quieres conversar sobre alguno de estos proyectos o sobre una oportunidad de trabajo, escríbeme por correo.</p><a class="text-link" href="mailto:sermed19@gmail.com">sermed19@gmail.com <span aria-hidden="true">↗</span></a></div>
     </section>
   </main>

@@ -25,6 +25,12 @@ p + p { margin-top: 1em; }
 
 .site-header, .site-footer { display: flex; align-items: center; justify-content: space-between; gap: .75rem 1.5rem; }
 .site-header { position: sticky; top: 0; z-index: 2; background: var(--background); padding-block: 1.25rem; border-bottom: 1px solid var(--line); }
+html.has-section-position { scroll-padding-top: calc(5.5rem + 1.75rem); }
+.site-header:has(.section-position:not([hidden])) { flex-wrap: wrap; row-gap: .25rem; }
+.section-position { flex-basis: 100%; color: var(--muted); font-size: .8rem; }
+.site-header .section-position a { margin-inline-start: .75rem; text-decoration: underline; }
+[tabindex="-1"]:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+.section-position span { color: var(--accent); font-weight: 650; margin-inline-start: .4rem; }
 .reading-progress {
   position: absolute;
   inset: auto 0 -1px;
@@ -63,6 +69,7 @@ p + p { margin-top: 1em; }
 .section h2 { font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 650; letter-spacing: -.055em; line-height: 1.06; margin-bottom: 1.5rem; }
 .section h3 { font-size: 1.38rem; line-height: 1.2; letter-spacing: -.025em; text-wrap: balance; }
 .section p:not(.eyebrow), .skills dd { color: var(--muted); }
+.lede, .timeline p, .skills dd { text-wrap: pretty; }
 .editorial { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 1.25rem 4rem; }
 .editorial h2 { margin: 0; }
 .editorial p { max-width: 56ch; text-wrap: pretty; }
@@ -78,7 +85,7 @@ p + p { margin-top: 1em; }
 }
 .case { display: flex; flex-direction: column; align-items: start; gap: .85rem; padding: clamp(1rem, 2.4vw, 1.6rem); border: 1px solid var(--line); border-radius: 1rem; background: var(--surface); }
 .case p { margin: 0; text-wrap: pretty; }
-.case strong { color: var(--text); }
+.case p.case-result { color: var(--text); font-weight: 650; }
 .case .stack { margin-top: auto; padding-top: .85rem; border-top: 1px solid var(--line); width: 100%; font-size: .85rem; }
 .timeline { list-style: none; margin: 0; padding: 0; }
 .timeline li { display: grid; grid-template-columns: minmax(9rem, .35fr) minmax(0, 1fr); gap: .35rem 1.5rem; padding-block: 1.2rem; border-bottom: 1px solid var(--line); }
