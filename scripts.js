@@ -7,9 +7,37 @@ const careerLink = document.querySelector('[data-career-link]');
 if (careerLink && legacySections.has(legacySection)) {
   window.location.replace(careerLink.href + legacySection);
 } else if (careerLink && legacySection === "#about-domain-en" && document.documentElement.lang === "es") {
-  const englishLink = document.querySelector('a[hreflang="en"]');
+  const englishLink = document.querySelector('.languages a[hreflang="en"]');
   window.location.replace(englishLink.href + "#about-domain");
 }
+
+const legacyFragments = new Map([
+  ["#contenido", "#content"],
+  ["#proyectos", "#projects"],
+  ["#como-trabajo", "#how-i-work"],
+  ["#contacto", "#contact"],
+]);
+const currentFragment = legacyFragments.get(legacySection);
+if (currentFragment && document.getElementById(currentFragment.slice(1))) {
+  window.location.replace(currentFragment);
+}
+
+const languageLinks = document.querySelectorAll(".languages a");
+const languageDestinations = Array.from(languageLinks, (link) => new URL(link.href));
+
+function updateLanguageLinks() {
+  const fragment = window.location.hash;
+  const section = fragment && document.getElementById(fragment.slice(1));
+  languageLinks.forEach((link, index) => {
+    const destination = languageDestinations[index];
+    destination.hash = section ? fragment : "";
+    link.href = destination.href;
+  });
+}
+
+window.addEventListener("hashchange", updateLanguageLinks);
+window.addEventListener("pageshow", updateLanguageLinks);
+updateLanguageLinks();
 
 const readingProgress = document.querySelector(".reading-progress");
 
