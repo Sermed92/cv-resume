@@ -54,9 +54,10 @@
           <p class="stack">Monolito modular</p>
         </article>
         <article class="case">
-          <p class="eyebrow">Rappi · Back office</p>
+          <p class="eyebrow">Rappi</p>
           <h3>Separar un monolito por dominios</h3>
-          <p>Me encargué de migrar servicios del back office a microservicios. Usé Domain-Driven Design para definir cómo separar los servicios según los dominios del negocio.</p>
+          <p>En un producto de Rappi, las tareas menos urgentes podían retrasar pedidos que debían procesarse en tiempo real. Me encargué de documentar los flujos del monolito. Con esa base, definimos los dominios en equipo aplicando Domain-Driven Design. Después implementé buena parte de los microservicios.</p>
+          <p>Retiramos el monolito y redujimos considerablemente el costo de operar un producto que seguía generando ingresos.</p>
           <p class="stack">Go · Microservicios · DDD</p>
         </article>
         <article class="case">
@@ -71,8 +72,9 @@
       <h2 id="work-style-title">Cómo trabajo</h2>
       <div class="case-grid work-principles">
         <article class="case">
-          <h3>Elijo la arquitectura según el problema</h3>
-          <p>En Platzi desarrollé funcionalidades B2B dentro de un monolito modular. En Rappi usé los dominios del negocio para decidir cómo separar servicios del back office.</p>
+          <h3>Decido qué aislar según el impacto en la operación</h3>
+          <p>Antes de separar una funcionalidad, me pregunto qué pasa si deja de estar disponible. Si la operación depende de ella, evalúo dónde puede ejecutarse con la disponibilidad que necesita y qué dependencias tendría que mantener.</p>
+          <p>También miro qué pasa mientras se ejecuta. Si la tarea puede esperar y compite por recursos con los flujos críticos, prefiero aislarla para que pueda ejecutarse sin competir con los flujos críticos.</p>
         </article>
         <article class="case">
           <h3>Si algo va lento, lo primero es ubicar el cuello de botella</h3>

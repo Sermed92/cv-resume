@@ -54,9 +54,10 @@
           <p class="stack">Modular monolith</p>
         </article>
         <article class="case">
-          <p class="eyebrow">Rappi · Back office</p>
+          <p class="eyebrow">Rappi</p>
           <h3>Breaking up a monolith by domain</h3>
-          <p>I handled the migration of back-office services to microservices. I used Domain-Driven Design to decide how to split the services along business domain boundaries.</p>
+          <p>In one Rappi product, less urgent tasks could delay orders that had to be processed in real time. I took charge of documenting the monolith’s workflows. As a team, we used that documentation and Domain-Driven Design to define the domains. I then implemented many of the resulting microservices.</p>
+          <p>We retired the monolith and substantially reduced the cost of running a product that continued to generate revenue.</p>
           <p class="stack">Go · Microservices · DDD</p>
         </article>
         <article class="case">
@@ -71,8 +72,9 @@
       <h2 id="work-style-title">How I work</h2>
       <div class="case-grid work-principles">
         <article class="case">
-          <h3>I choose the architecture to fit the problem</h3>
-          <p>At Platzi, I built B2B features within a modular monolith. At Rappi, I used business domains to decide how to split back-office services.</p>
+          <h3>I decide what to isolate based on its impact on operations</h3>
+          <p>Before splitting out a feature, I ask what happens if it becomes unavailable. If operations depend on it, I consider where it can run with the availability it needs and which dependencies it would still rely on.</p>
+          <p>I also look at what happens while it runs. If a task can wait and competes with critical workflows for resources, I prefer to isolate it so it can run without competing for resources with critical workflows.</p>
         </article>
         <article class="case">
           <h3>When something is slow, the first step is to find the bottleneck</h3>
