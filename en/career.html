@@ -10,7 +10,7 @@
   <link rel="alternate" hreflang="es" href="https://soyesyo.com/career.html">
   <link rel="alternate" hreflang="en" href="https://soyesyo.com/en/career.html">
   <link rel="alternate" hreflang="x-default" href="https://soyesyo.com/career.html">
-  <link rel="stylesheet" href="../styles.css?v=5">
+  <link rel="stylesheet" href="../styles.css?v=6">
   <script src="../scripts.js?v=6" defer></script>
 </head>
 <body>
@@ -36,7 +36,6 @@
         <a class="button" href="#projects">See projects <span aria-hidden="true">↓</span></a>
       </div>
       <nav class="hero-aside" aria-label="On this page">
-        <a href="#projects">Projects <span aria-hidden="true">↘</span></a>
         <a href="#how-i-work">How I work <span aria-hidden="true">↘</span></a>
         <a href="#work-experience">Work history <span aria-hidden="true">↘</span></a>
         <a href="#skills">Tools <span aria-hidden="true">↘</span></a>
@@ -62,8 +61,9 @@
         </article>
         <article class="case">
           <p class="eyebrow">ArionKoder · Performance</p>
-          <h3>Improving API performance</h3>
-          <p>I optimized database queries and used caching to reduce API response times.</p>
+          <h3>From seconds to 150 ms in bookings</h3>
+          <p>In a booking system, querying external providers and processing their responses took several seconds. Since the data didn’t change in real time, we cached the processed results.</p>
+          <p>Although querying the provider was still slow when no cached result was available, fewer external calls brought the average response time down to 150 ms.</p>
           <p class="stack">Spring Boot · Caching</p>
         </article>
       </div>
