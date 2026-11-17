@@ -25,6 +25,18 @@ if (currentFragment && document.getElementById(currentFragment.slice(1))) {
 const languageLinks = document.querySelectorAll(".languages a");
 const languageDestinations = Array.from(languageLinks, (link) => new URL(link.href));
 
+// Keep the native transition for the translated version of the current page.
+const alternateLanguage = new URL(document.querySelector(".languages a:not([aria-current])").href);
+window.addEventListener("pageswap", (event) => {
+  const destination = event.activation?.entry.url;
+  if (!event.viewTransition || !destination) return;
+
+  const url = new URL(destination);
+  if (url.origin !== alternateLanguage.origin || url.pathname !== alternateLanguage.pathname) {
+    event.viewTransition.skipTransition();
+  }
+});
+
 const header = document.querySelector(".site-header");
 const sections = Array.from(document.querySelectorAll("main > section[id]"));
 const readingProgress = document.querySelector(".reading-progress");
