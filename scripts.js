@@ -38,19 +38,88 @@ window.addEventListener("pageswap", (event) => {
 });
 
 const motionPreference = window.matchMedia("(prefers-reduced-motion: no-preference)");
-document.querySelectorAll(".hero.professional a[href^='#']").forEach((link) => {
+let pendingSection;
+
+const careerLinks = Array.from(document.querySelectorAll(".hero.professional a[href^='#']"));
+careerLinks.forEach((link, index) => {
   link.addEventListener("click", (event) => {
-    if (!motionPreference.matches || event.defaultPrevented ||
+    if (event.defaultPrevented ||
         event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
 
     const target = document.getElementById(link.hash.slice(1));
     if (!target) return;
 
+    if (window.location.hash !== link.hash) {
+      history.replaceState({ ...history.state, careerReturnLink: index, careerReturnPosition: window.scrollY }, "");
+    }
+    if (!motionPreference.matches || !("onscrollend" in document)) return;
+
+    const page = document.documentElement;
+    const offset = parseFloat(getComputedStyle(page).scrollPaddingTop) +
+      parseFloat(getComputedStyle(target).scrollMarginTop);
+    const destination = Math.min(page.scrollHeight - page.clientHeight,
+      Math.max(0, window.scrollY + target.getBoundingClientRect().top - offset));
+    if (Math.abs(window.scrollY - destination) < 1) return;
+
     event.preventDefault();
-    if (window.location.hash !== link.hash) history.pushState(null, "", link.hash);
+    pendingSection = { target, start: window.scrollY };
+    const state = { pendingSection: target.id };
+    if (window.location.hash === link.hash) history.replaceState(state, "", link.hash);
+    else history.pushState(state, "", link.hash);
     target.focus({ preventScroll: true });
     target.scrollIntoView({ behavior: "smooth" });
+    updateReadingPosition();
   });
+});
+
+document.addEventListener("scrollend", () => {
+  if (!pendingSection || Math.abs(window.scrollY - pendingSection.start) < 1) return;
+  pendingSection = null;
+  history.replaceState({ ...history.state, pendingSection: undefined }, "");
+  updateReadingPosition();
+});
+
+function restoreCareerPosition(interrupted = false) {
+  const state = history.state;
+  const hash = window.location.hash;
+  requestAnimationFrame(() => {
+    if (history.state !== state || window.location.hash !== hash) return;
+    const target = document.getElementById(hash.slice(1));
+    if (target && state?.pendingSection === target.id) {
+      // An interrupted jump may have saved a position between two sections.
+      target.focus({ preventScroll: true });
+      target.scrollIntoView({ behavior: "instant" });
+      history.replaceState({ ...state, pendingSection: undefined }, "");
+      updateReadingPosition();
+      return;
+    }
+
+    const returnLink = careerLinks[state?.careerReturnLink];
+    if (interrupted && returnLink) {
+      window.scrollTo({ top: state.careerReturnPosition, behavior: "instant" });
+    }
+    const focusTarget = returnLink ?? target;
+    const bounds = focusTarget?.getBoundingClientRect();
+    if (bounds && bounds.top >= header.getBoundingClientRect().bottom && bounds.top < window.innerHeight) {
+      focusTarget.focus({ preventScroll: true });
+    }
+  });
+}
+
+window.addEventListener("popstate", () => {
+  if (!careerLinks.length) return;
+  const interrupted = Boolean(pendingSection);
+  if (interrupted) {
+    pendingSection = null;
+    window.scrollTo({ top: window.scrollY, behavior: "instant" });
+  }
+  restoreCareerPosition(interrupted);
+});
+window.addEventListener("pagehide", () => {
+  pendingSection = null;
+});
+window.addEventListener("pageshow", () => {
+  if (history.state?.pendingSection) restoreCareerPosition();
 });
 
 const header = document.querySelector(".site-header");
@@ -86,6 +155,7 @@ function updateReadingPosition() {
       ? target
       : sections.at(-1);
   }
+  section = pendingSection?.target ?? section;
   if (section === activeSection) return;
   activeSection = section;
 
