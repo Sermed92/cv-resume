@@ -109,10 +109,6 @@ p + p { margin-top: 1em; }
   .professional h1 { font-size: clamp(2rem, 9vw, 2.35rem); margin-bottom: 1rem; }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  html:has(.hero.professional) { scroll-behavior: smooth; }
-}
-
 @media (scripting: enabled) and (prefers-reduced-motion: no-preference) {
   @view-transition { navigation: auto; }
 

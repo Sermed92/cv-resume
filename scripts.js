@@ -37,6 +37,22 @@ window.addEventListener("pageswap", (event) => {
   }
 });
 
+const motionPreference = window.matchMedia("(prefers-reduced-motion: no-preference)");
+document.querySelectorAll(".hero.professional a[href^='#']").forEach((link) => {
+  link.addEventListener("click", (event) => {
+    if (!motionPreference.matches || event.defaultPrevented ||
+        event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+
+    const target = document.getElementById(link.hash.slice(1));
+    if (!target) return;
+
+    event.preventDefault();
+    if (window.location.hash !== link.hash) history.pushState(null, "", link.hash);
+    target.focus({ preventScroll: true });
+    target.scrollIntoView({ behavior: "smooth" });
+  });
+});
+
 const header = document.querySelector(".site-header");
 const sections = Array.from(document.querySelectorAll("main > section[id]"));
 const readingProgress = document.querySelector(".reading-progress");
