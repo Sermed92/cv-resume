@@ -27,7 +27,8 @@ p + p { margin-top: 1em; }
 .site-header { position: sticky; top: 0; z-index: 2; background: var(--background); padding-block: 1.25rem; border-bottom: 1px solid var(--line); }
 .site-header:has(.section-position:not([hidden])) { flex-wrap: wrap; row-gap: .25rem; }
 .section-position { flex-basis: 100%; color: var(--muted); font-size: .8rem; }
-.site-header .section-position a { margin-inline-start: .75rem; text-decoration: underline; }
+.section-position:not([hidden]):has(> a) { display: flex; align-items: center; justify-content: space-between; gap: .5rem; }
+.site-header .section-position a { display: inline-flex; align-items: center; min-height: 2.75rem; padding-inline: .5rem; text-decoration: underline; white-space: nowrap; }
 [tabindex="-1"]:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
 .section-position span { color: var(--accent); font-weight: 650; margin-inline-start: .4rem; }
 .reading-progress {
@@ -54,7 +55,7 @@ p + p { margin-top: 1em; }
 .professional { grid-template-columns: minmax(0, 2.5fr) minmax(10rem, 1fr); padding-block: clamp(2.5rem, 5vw, 5rem); }
 .professional h1 { font-size: clamp(2.65rem, 5.4vw, 5.4rem); }
 .professional .button { margin-top: 0; margin-bottom: 1.25rem; }
-.legacy-sections :target, .legacy-sections :target > a { color: var(--accent); font-weight: 650; }
+.legacy-sections :target, .legacy-sections :target > a, .legacy-recovery:not(:has(:target)) .legacy-default a { color: var(--accent); font-weight: 650; }
 .eyebrow { font: .79rem/1.5 "IBM Plex Mono", Consolas, monospace; letter-spacing: .11em; text-transform: uppercase; color: var(--accent); }
 .lede { font-size: clamp(1.08rem, 1.7vw, 1.38rem); max-width: 41ch; color: var(--muted); }
 .button { display: inline-flex; align-items: center; gap: .8rem; margin-top: 1.75rem; padding: .65rem 1.1rem; border-radius: 99rem; color: var(--background); background: var(--accent); font-weight: 650; text-decoration: none; }
@@ -106,7 +107,6 @@ p + p { margin-top: 1em; }
   .site-header { width: calc(100% - 1.25rem); column-gap: .25rem; font-size: .9rem; }
   .site-header nav { column-gap: .25rem; }
   .site-header .brand { letter-spacing: -.04em; font-size: .9rem; }
-  .site-header .section-position a { margin-inline-start: .5rem; white-space: nowrap; }
   .site-header { padding-block: .65rem; }
   .timeline li { grid-template-columns: 1fr; }
 }
