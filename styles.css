@@ -99,14 +99,17 @@ p + p { margin-top: 1em; }
   .hero, .editorial { grid-template-columns: 1fr; }
   .wordmark { min-height: 12rem; }
 }
+@media (max-width: 38rem) {
+  .career-header { display: grid; grid-template-columns: 1fr auto; gap: 0 .5rem; padding-block: .25rem; }
+  .career-header .section-jump, .career-header nav:not(.languages) { justify-self: end; }
+}
+
 @media (max-width: 28rem) {
   .wrap { width: calc(100% - 2rem); }
   .site-header { width: calc(100% - 1.25rem); column-gap: .25rem; font-size: .9rem; }
   .site-header nav { column-gap: .25rem; }
   .site-header .brand { letter-spacing: -.04em; font-size: .9rem; }
-  .site-header { padding-block: .65rem; }
-  .career-header { display: grid; grid-template-columns: 1fr auto; gap: 0 .5rem; padding-block: .25rem; }
-  .career-header .section-jump, .career-header nav:not(.languages) { justify-self: end; }
+  .site-header:not(.career-header) { padding-block: .65rem; }
   .career-header .languages { justify-self: end; }
   .timeline li { grid-template-columns: 1fr; }
 }
