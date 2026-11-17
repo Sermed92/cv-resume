@@ -8,7 +8,7 @@
   <script>
     window.location.replace("career.html" + window.location.search + window.location.hash);
   </script>
-  <link rel="stylesheet" href="styles.css?v=13">
+  <link rel="stylesheet" href="styles.css?v=14">
 </head>
 <body>
   <main class="wrap">
@@ -16,13 +16,13 @@
       <h1 id="moved-title">Carrera · Sergio Medina</h1>
       <p>La página de Carrera cambió de dirección. Puedes abrirla o ir directamente a una sección.</p>
       <p><a href="career.html">Abrir Carrera</a></p>
-      <nav aria-label="Secciones de Carrera">
+      <nav class="legacy-sections" aria-label="Secciones de Carrera">
         <ul>
-          <li><a href="career.html#projects">Proyectos</a></li>
-          <li><a href="career.html#how-i-work">Cómo trabajo</a></li>
-          <li><a href="career.html#work-experience">Trayectoria</a></li>
-          <li><a href="career.html#skills">Herramientas</a></li>
-          <li><a href="career.html#contact">Contacto</a></li>
+          <li id="projects"><a id="proyectos" href="career.html#projects">Proyectos</a></li>
+          <li id="how-i-work"><a id="como-trabajo" href="career.html#how-i-work">Cómo trabajo</a></li>
+          <li><a id="work-experience" href="career.html#work-experience">Trayectoria</a></li>
+          <li><a id="skills" href="career.html#skills">Herramientas</a></li>
+          <li id="contact"><a id="contacto" href="career.html#contact">Contacto</a></li>
         </ul>
       </nav>
     </section>

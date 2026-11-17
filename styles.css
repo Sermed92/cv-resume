@@ -53,6 +53,8 @@ p + p { margin-top: 1em; }
 .hero h1 { font-size: clamp(3rem, 7vw, 7rem); font-weight: 650; line-height: .98; letter-spacing: -.04em; margin-block: .75rem 1.5rem; text-wrap: balance; }
 .professional { grid-template-columns: minmax(0, 2.5fr) minmax(10rem, 1fr); padding-block: clamp(2.5rem, 5vw, 5rem); }
 .professional h1 { font-size: clamp(2.65rem, 5.4vw, 5.4rem); }
+.professional .button { margin-top: 0; margin-bottom: 1.25rem; }
+.legacy-sections :target, .legacy-sections :target > a { color: var(--accent); font-weight: 650; }
 .eyebrow { font: .79rem/1.5 "IBM Plex Mono", Consolas, monospace; letter-spacing: .11em; text-transform: uppercase; color: var(--accent); }
 .lede { font-size: clamp(1.08rem, 1.7vw, 1.38rem); max-width: 41ch; color: var(--muted); }
 .button { display: inline-flex; align-items: center; gap: .8rem; margin-top: 1.75rem; padding: .65rem 1.1rem; border-radius: 99rem; color: var(--background); background: var(--accent); font-weight: 650; text-decoration: none; }
@@ -102,8 +104,9 @@ p + p { margin-top: 1em; }
 @media (max-width: 28rem) {
   .wrap { width: calc(100% - 2rem); }
   .site-header { width: calc(100% - 1.25rem); column-gap: .25rem; font-size: .9rem; }
-  .site-header .brand { font-size: 1rem; }
-  .site-header nav { column-gap: .4rem; }
+  .site-header nav { column-gap: .25rem; }
+  .site-header .brand { letter-spacing: -.04em; font-size: .9rem; }
+  .site-header .section-position a { margin-inline-start: .5rem; white-space: nowrap; }
   .site-header { padding-block: .65rem; }
   .timeline li { grid-template-columns: 1fr; }
 }
@@ -111,5 +114,4 @@ p + p { margin-top: 1em; }
 @media (max-width: 30rem) and (max-height: 40rem) {
   .professional { padding-block-start: 1.25rem; }
   .professional h1 { font-size: clamp(2rem, 9vw, 2.35rem); margin-bottom: 1rem; }
-  .professional .button { margin-top: 1rem; }
 }
