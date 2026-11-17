@@ -26,13 +26,10 @@ const languageLinks = document.querySelectorAll(".languages a");
 const languageDestinations = Array.from(languageLinks, (link) => new URL(link.href));
 
 const header = document.querySelector(".site-header");
-const sectionPosition = document.querySelector(".section-position");
-const sectionLabel = sectionPosition?.querySelector("span");
-const sections = Array.from(document.querySelectorAll("[data-section-label]"));
+const sections = Array.from(document.querySelectorAll("main > section[id]"));
 const readingProgress = document.querySelector(".reading-progress");
 let activeSection;
 
-if (sectionPosition) sectionPosition.hidden = false;
 function updateHeaderOffset() {
   const offset = header.getBoundingClientRect().height + 12;
   document.documentElement.style.setProperty("--header-scroll-offset", offset + "px");
@@ -63,7 +60,6 @@ function updateReadingPosition() {
   }
   if (section === activeSection) return;
   activeSection = section;
-  if (sectionLabel) sectionLabel.textContent = section.dataset.sectionLabel;
 
   languageLinks.forEach((link, index) => {
     const destination = languageDestinations[index];
