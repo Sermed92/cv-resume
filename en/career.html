@@ -79,7 +79,7 @@
         <article class="case">
           <h3>I decide what to isolate based on its impact on operations</h3>
           <p>Before splitting out a feature, I ask what happens if it becomes unavailable. If operations depend on it, I consider where it can run with the availability it needs and which dependencies it would still rely on.</p>
-          <p>I also look at what happens while it runs. If a task can wait and competes with critical workflows for resources, I prefer to isolate it so it can run without competing for resources with critical workflows.</p>
+          <p>I also look at what happens while it runs. If a task can wait and consumes resources that critical workflows need, I prefer to isolate it to protect response times and operational stability.</p>
         </article>
         <article class="case">
           <h3>When something is slow, the first step is to find the bottleneck</h3>

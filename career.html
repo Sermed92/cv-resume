@@ -79,7 +79,7 @@
         <article class="case">
           <h3>Decido qué aislar según el impacto en la operación</h3>
           <p>Antes de separar una funcionalidad, me pregunto qué pasa si deja de estar disponible. Si la operación depende de ella, evalúo dónde puede ejecutarse con la disponibilidad que necesita y qué dependencias tendría que mantener.</p>
-          <p>También miro qué pasa mientras se ejecuta. Si la tarea puede esperar y compite por recursos con los flujos críticos, prefiero aislarla para que pueda ejecutarse sin competir con los flujos críticos.</p>
+          <p>También miro qué pasa mientras se ejecuta. Si una tarea puede esperar y consume recursos que necesitan los flujos críticos, prefiero aislarla para proteger los tiempos de respuesta y la estabilidad de la operación.</p>
         </article>
         <article class="case">
           <h3>Si algo va lento, lo primero es ubicar el cuello de botella</h3>
